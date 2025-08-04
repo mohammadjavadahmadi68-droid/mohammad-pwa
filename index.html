@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MetaTraderLife - فرم‌ها</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1976d2">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: sans-serif; background: #f0f2f5; padding: 1rem; direction: rtl; }
+    h2 { color: #1976d2; margin-top: 2rem; }
+    form { background: #fff; padding: 1rem; border-radius: 10px; box-shadow: 0 0 10px #ccc; margin-bottom: 2rem; }
+    label { display: block; margin-top: 1rem; }
+    input, select, textarea { width: 100%; padding: 0.5rem; margin-top: 0.3rem; border-radius: 5px; border: 1px solid #ccc; }
+    button { margin-top: 1rem; background: #1976d2; color: white; border: none; padding: 0.7rem 1.2rem; border-radius: 5px; }
+    canvas { background: #fff; border-radius: 10px; padding: 1rem; box-shadow: 0 0 10px #ccc; margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+  <h1>MetaTraderLife</h1>
+
+  <!-- انتخاب تاریخ -->
+  <h2>تاریخ فعالیت</h2>
+  <form>
+    <label>انتخاب تاریخ <input type="date" id="selectedDate"></label>
+  </form>
+
+  <!-- فرم‌ها: تغذیه، ژورنال ترید، مالی و ... -->
+
+  <!-- نمودار نمایشی تغذیه -->
+  <h2>نمودار پیشرفت تغذیه</h2>
+  <canvas id="nutritionChart" width="400" height="200"></canvas>
+  <script>
+    const nutriCtx = document.getElementById('nutritionChart').getContext('2d');
+    const nutritionChart = new Chart(nutriCtx, {
+      type: 'line',
+      data: {
+        labels: ['۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '۱۰'],
+        datasets: [{
+          label: 'امتیاز تغذیه روزانه',
+          data: [60, 90, 0, 30, 60, 100, 60, 90, 30, 0],
+          borderColor: '#ff9800',
+          backgroundColor: 'rgba(255, 152, 0, 0.2)',
+          tension: 0.3
+        },
+        {
+          label: 'حد استاندارد (>= 60)',
+          data: Array(10).fill(60),
+          borderColor: 'rgba(76,175,80,1)',
+          borderDash: [5, 5],
+          pointRadius: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            min: 0,
+            max: 100,
+            ticks: {
+              stepSize: 20
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
