@@ -1,1 +1,0 @@
-// service worker برای PWA - فعلاً خالی
