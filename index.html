@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <link rel="manifest" href="manifest.json"/>
+    <title>MetaTraderLife</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <h1>اپلیکیشن MetaTraderLife</h1>
+    <label for="date">تاریخ فعالیت:</label>
+    <input type="date" id="date"/>
+
+    <section>
+        <h2>ژورنال ترید</h2>
+        <input type="text" id="symbol" placeholder="نماد"/>
+        <input type="text" id="accountType" placeholder="نوع حساب"/>
+        <input type="number" id="profitLoss" placeholder="سود / ضرر"/>
+        <input type="number" id="drawdown" placeholder="دروان"/>
+        <textarea id="tradeNotes" placeholder="توضیحات اضافی"></textarea>
+        <button onclick="saveTrade()">ثبت ترید</button>
+    </section>
+
+    <section>
+        <h2>گزارش مالی</h2>
+        <input type="number" id="income" placeholder="دریافتی"/>
+        <input type="number" id="expenses" placeholder="هزینه‌ها"/>
+        <input type="number" id="otherExpenses" placeholder="سایر (مسافرت، خرید و...)"/>
+        <button onclick="saveFinance()">ثبت مالی</button>
+    </section>
+
+    <section>
+        <h2>تغذیه و آب</h2>
+        <label>صبحانه:</label>
+        <select id="breakfast">
+            <option value="0">نخوردم</option>
+            <option value="30">کم</option>
+            <option value="60" selected>معمولی</option>
+            <option value="100">زیاد</option>
+        </select>
+        <label>ناهار:</label>
+        <select id="lunch">
+            <option value="0">نخوردم</option>
+            <option value="30">کم</option>
+            <option value="60" selected>معمولی</option>
+            <option value="100">زیاد</option>
+        </select>
+        <label>شام:</label>
+        <select id="dinner">
+            <option value="0">نخوردم</option>
+            <option value="30">کم</option>
+            <option value="60" selected>معمولی</option>
+            <option value="100">زیاد</option>
+        </select>
+        <label>آب و مایعات:</label>
+        <select id="water">
+            <option value="30">کم</option>
+            <option value="60" selected>معمولی</option>
+            <option value="100">زیاد</option>
+        </select>
+        <button onclick="saveNutrition()">ثبت تغذیه</button>
+    </section>
+
+    <section>
+        <h2>برنامه‌ریزی و اهداف</h2>
+        <textarea id="goal" placeholder="اهداف امروز، این هفته، این ماه..."></textarea>
+        <button onclick="saveGoal()">ثبت هدف</button>
+    </section>
+
+    <section>
+        <h2>نمودار پیشرفت</h2>
+        <canvas id="chart" width="300" height="200"></canvas>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
